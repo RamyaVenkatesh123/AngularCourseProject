@@ -1,0 +1,18 @@
+<form #subscribeForm="ngForm" (ngSubmit)="submit(subscribeForm)">
+    <input email required [(ngModel)]="email" name="email" type="email"
+        class="w-full mt-4 p-3 border border-emerald-800 border-opacity-20 rounded-lg">
+
+    <span class="text-red-600" *ngIf="subscribeForm.controls['email'].dirty && 
+    !subscribeForm.controls['email'].valid">Invalid Email ID</span>
+
+    <app-button [disabled]="!subscribeForm.valid" class="block mt-4" name="Subscribe Now"
+     size="L" shade="D" animation="C"></app-button>
+
+    <span *ngIf="this.message!=''" class="text-green-600">
+        {{this.message}}
+    </span>
+
+    <span *ngIf="this.errorMessage!=''" class="text-red-600">
+        {{this.errorMessage}}
+    </span>
+</form>
